@@ -1,6 +1,6 @@
 {
   "name": "volto-solrpush",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Volto Solr Push add-on",
   "main": "src/index.js",
   "author": "collective",
