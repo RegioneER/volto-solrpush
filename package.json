@@ -15,7 +15,6 @@
     "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
     "release": "release-it"
   },
-  "dependencies": {},
   "peerDependencies": {
     "@plone/volto": ">=16.0.0-alpha.38"
   },

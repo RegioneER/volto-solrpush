@@ -1,4 +1,5 @@
 import ToolbarUserMenu from 'volto-solrpush/components/manage/toolbar/ToolbarUserMenu';
+import solrImagesMiddleware from 'volto-solrpush/express-middleware/solr-images';
 
 const applyConfig = (config) => {
   config.settings = {
@@ -10,7 +11,13 @@ const applyConfig = (config) => {
         component: ToolbarUserMenu,
       },
     ],
+
+    expressMiddleware: [
+      ...config.settings.expressMiddleware,
+      solrImagesMiddleware(),
+    ],
   };
+
   return config;
 };
 
