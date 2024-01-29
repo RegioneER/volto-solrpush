@@ -1,4 +1,5 @@
 .vscode/
+.history
 logs
 *.log
 npm-debug.log*
@@ -13,6 +14,8 @@ dist
 .env.development.local
 .env.test.local
 .env.production.local
+
+.changelog.draft
 
 # yarn 3
 .pnp.*
