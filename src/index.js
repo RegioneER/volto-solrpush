@@ -11,11 +11,6 @@ const applyConfig = (config) => {
         component: ToolbarUserMenu,
       },
     ],
-
-    expressMiddleware: [
-      ...config.settings.expressMiddleware,
-      solrImagesMiddleware(),
-    ],
   };
 
   return config;
