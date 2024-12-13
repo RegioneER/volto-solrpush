@@ -1,5 +1,4 @@
 import React from 'react';
-import { useIntl, defineMessages } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -7,31 +6,30 @@ import { Icon } from '@plone/volto/components';
 import rightArrowSVG from '@plone/volto/icons/right-key.svg';
 import { Plug } from '@plone/volto/components/manage/Pluggable';
 
-const messages = defineMessages({
-  elevate_settings: {
-    id: 'Elevate settings',
-    defaultMessage: 'Gestione elevate SOLR',
-  },
-});
-
 export const ToolbarUserMenu = () => {
-  const intl = useIntl();
   const token = useSelector((state) => state.userSession?.token);
-  return token ? (
+  const userActions = useSelector((state) => state.actions?.actions?.user);
+  let elevateAction = userActions.find(
+    (action) => action.id === 'solr-elevate',
+  );
+  if (!token && !elevateAction) {
+    return null;
+  }
+  return (
     <Plug pluggable="toolbar-user-menu" id="elevate-settings-toolbar">
       <li>
         <Link
           to="/controlpanel/elevate-settings"
           tabIndex={0}
-          className="deleteBlocks"
-          id="toolbar-customer-satisfaction-panel"
+          className="elevateSettingsButton"
+          id="toolbar-elevate-settings-panel"
         >
-          {intl.formatMessage(messages.elevate_settings)}{' '}
+          {elevateAction.title}
           <Icon name={rightArrowSVG} size="24px" />
         </Link>
       </li>
     </Plug>
-  ) : null;
+  );
 };
 
 export default ToolbarUserMenu;
