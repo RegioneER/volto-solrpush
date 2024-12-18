@@ -12,8 +12,8 @@ export const ToolbarUserMenu = () => {
   let elevateAction = userActions.find(
     (action) => action.id === 'solr-elevate',
   );
-  if (!token && !elevateAction) {
-    return null;
+  if (!token || !elevateAction) {
+    return '';
   }
   return (
     <Plug pluggable="toolbar-user-menu" id="elevate-settings-toolbar">
