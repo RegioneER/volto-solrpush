@@ -12,7 +12,7 @@ export const ToolbarUserMenu = () => {
   let elevateAction = userActions.find(
     (action) => action.id === 'solr-elevate',
   );
-  if (!token && !elevateAction) {
+  if (!token || !elevateAction) {
     return null;
   }
   return (
