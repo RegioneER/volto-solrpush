@@ -13,7 +13,7 @@ export const ToolbarUserMenu = () => {
     (action) => action.id === 'solr-elevate',
   );
   if (!token || !elevateAction) {
-    return null;
+    return '';
   }
   return (
     <Plug pluggable="toolbar-user-menu" id="elevate-settings-toolbar">
